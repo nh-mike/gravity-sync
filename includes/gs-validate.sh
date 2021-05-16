@@ -34,7 +34,7 @@ function validate_ph_folders {
         fi
     elif [ "$PH_IN_TYPE" == "docker" ]
     then
-        FTLCHECK=$(sudo docker container ls | grep "${CONTAIMAGE}")
+        FTLCHECK=$(sudo docker container ls | grep "pihole")
         if [ "$FTLCHECK" == "" ]
         then
             MESSAGE="${UI_VALIDATING_FAIL_CONTAINER} ${UI_CORE_APP}"
@@ -43,7 +43,7 @@ function validate_ph_folders {
         fi
     elif [ "$PH_IN_TYPE" == "podman" ]
     then
-        FTLCHECK=$(sudo podman container ls | grep "${CONTAIMAGE}")
+        FTLCHECK=$(sudo podman container ls | grep "pihole")
         if [ "$FTLCHECK" == "" ]
         then
             MESSAGE="${UI_VALIDATING_FAIL_CONTAINER} ${UI_CORE_APP}"
